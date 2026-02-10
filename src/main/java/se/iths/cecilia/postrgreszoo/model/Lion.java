@@ -1,9 +1,6 @@
 package se.iths.cecilia.postrgreszoo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Lion {
@@ -12,12 +9,16 @@ public class Lion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "age", nullable = false)
     private int age;
 
+    @Column(name = "weight", nullable = false)
     private double weight;
 
+    @Column(name = "kills")
     private int kills;
 
     public Lion() {
