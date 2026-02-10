@@ -8,7 +8,7 @@ import se.iths.cecilia.postrgreszoo.repository.MonkeyRepository;
 import se.iths.cecilia.postrgreszoo.service.MonkeyService;
 
 @Controller
-@RequestMapping("/monkeys")
+@RequestMapping("/monkeys/")
 public class MonkeyController {
 
     private final MonkeyService monkeyService;
@@ -58,7 +58,7 @@ public class MonkeyController {
     public String showUpdateForm(@PathVariable Long id, Model model) {
         Monkey monkey = monkeyService.getMonkey(id);
         model.addAttribute("monkey", monkey);
-        return "redirect:/monkeys";
+        return "updateMonkey";
     }
 
     @DeleteMapping("/{id}/delete")
