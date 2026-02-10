@@ -19,7 +19,7 @@ public class MonkeyService {
         this.monkeyValidator = monkeyValidator;
     }
 
-    public List<Monkey> getMonkeys() {
+    public List<Monkey> getAllMonkeys() {
         return monkeyRepository.findAll();
     }
 
