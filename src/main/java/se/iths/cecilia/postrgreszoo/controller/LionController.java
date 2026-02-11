@@ -52,8 +52,9 @@ public class LionController {
         return "update-lion";
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteLion(@PathVariable Long id) {
+    @GetMapping("/{id}/delete")
+    public String deleteLion(@PathVariable Long id) {
         lionService.deleteLion(id);
+        return "redirect:/lions";
     }
 }
