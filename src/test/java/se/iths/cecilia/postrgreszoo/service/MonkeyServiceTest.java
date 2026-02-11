@@ -87,6 +87,8 @@ class MonkeyServiceTest {
     @Test
     @DisplayName("Throws MonkeyNotFoundException if monkey does not exist")
     void getMonkeyThrowsMonkeyNotFoundExceptionIfMonkeyDoesNotExist() {
+
+        //TODO: Make sure that a direct call to monkeyRepository is not needed to run the test
         Mockito.when(monkeyRepository.findById(3L)).thenThrow(MonkeyNotFoundException.class);
         Assertions.assertThrows(MonkeyNotFoundException.class, () -> monkeyService.getMonkey(3L));
     }
