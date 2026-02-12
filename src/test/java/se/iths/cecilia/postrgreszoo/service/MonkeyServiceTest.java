@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import se.iths.cecilia.postrgreszoo.exception.*;
+import se.iths.cecilia.postrgreszoo.exception.monkeyexceptions.*;
 import se.iths.cecilia.postrgreszoo.model.Monkey;
 import se.iths.cecilia.postrgreszoo.repository.MonkeyRepository;
 import se.iths.cecilia.postrgreszoo.validator.MonkeyValidator;
@@ -87,7 +87,6 @@ class MonkeyServiceTest {
     @Test
     @DisplayName("Throws MonkeyNotFoundException if monkey does not exist")
     void getMonkeyThrowsMonkeyNotFoundExceptionIfMonkeyDoesNotExist() {
-
         //TODO: Make sure that a direct call to monkeyRepository is not needed to run the test
         Mockito.when(monkeyRepository.findById(3L)).thenThrow(MonkeyNotFoundException.class);
         Assertions.assertThrows(MonkeyNotFoundException.class, () -> monkeyService.getMonkey(3L));
@@ -159,12 +158,10 @@ class MonkeyServiceTest {
     @Test
     @DisplayName("Verify deleteById-method is called")
     void deleteMonkey() {
-
         //TODO: Make sure that a direct call to monkeyRepository is not needed to run the test
         Mockito.when(monkeyRepository.findById(1L)).thenReturn(Optional.of(monkey));
         monkeyService.deleteMonkey(1L);
         Mockito.verify(monkeyRepository).deleteById(1L);
-
-
     }
+    
 }
