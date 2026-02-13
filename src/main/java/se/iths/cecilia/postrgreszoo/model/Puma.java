@@ -1,42 +1,30 @@
 package se.iths.cecilia.postrgreszoo.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Lion {
+public class Puma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "age", nullable = false)
     private int age;
-
-    @Column(name = "weight", nullable = false)
     private double weight;
+    private boolean dangerous;
 
-    @Column(name = "kills")
-    private int kills;
-
-    public Lion() {
+    public Puma() {
     }
 
-    public Lion(String name, int age, double weight, int kills) {
+    public Puma(String name, int age, double weight, boolean dangerous) {
         this.name = name;
         this.age = age;
         this.weight = weight;
-        this.kills = kills;
-    }
-
-    public Lion(Long id, String name, int age, double weight, int kills) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.weight = weight;
-        this.kills = kills;
+        this.dangerous = dangerous;
     }
 
     public Long getId() {
@@ -71,11 +59,11 @@ public class Lion {
         this.weight = weight;
     }
 
-    public int getKills() {
-        return kills;
+    public boolean isDangerous() {
+        return dangerous;
     }
 
-    public void setKills(int kills) {
-        this.kills = kills;
+    public void setDangerous(boolean dangerous) {
+        this.dangerous = dangerous;
     }
 }
