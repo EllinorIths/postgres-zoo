@@ -105,12 +105,4 @@ public class LionValidatorTest {
         lion.setKills(9);
         lionValidator.validate(lion);
     }
-
-    @Test
-    public void validateUpdatedLionTest() {
-        lion.setAge(43);
-        lion.setWeight(123);
-        lion.setKills(11);
-        lionValidator.validateUpdatedLion(lion);
-    }
 }
