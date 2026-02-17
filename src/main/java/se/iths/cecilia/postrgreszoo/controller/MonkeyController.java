@@ -34,7 +34,7 @@ public class MonkeyController {
     @PostMapping("/create")
     public String saveMonkey(@ModelAttribute Monkey monkey) {
         monkeyService.createMonkey(monkey);
-        return "redirect:/monkeys";
+        return "redirect:/monkeys/";
     }
 
     @GetMapping("/new")
@@ -45,7 +45,7 @@ public class MonkeyController {
     @PostMapping
     public String createMonkey(@ModelAttribute Monkey monkey) {
         monkeyService.createMonkey(monkey);
-        return "redirect:/monkeys";
+        return "redirect:/monkeys/";
     }
 
     @PutMapping("/{id}")
@@ -64,6 +64,6 @@ public class MonkeyController {
     @DeleteMapping("/{id}/delete")
     public String deleteMonkeyById(@PathVariable Long id) {
         monkeyService.deleteMonkey(id);
-        return "redirect:/monkeys";
+        return "redirect:/monkeys/";
     }
 }
