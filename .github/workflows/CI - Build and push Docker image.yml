@@ -34,6 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          # :dev nedan är versionen som används under utveckling
-          # Vid driftsättning ska versionen sättas till en riktig version, tex: 1.0.0
-          tags: <dockerhub_username>/postrgres-zoo-0.0.1-SNAPSHOT:dev
+          tags: axsty/postrgres-zoo-1.0.0:dev
