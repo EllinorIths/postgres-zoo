@@ -8,6 +8,7 @@ import se.iths.cecilia.postrgreszoo.repository.WolfRepository;
 import se.iths.cecilia.postrgreszoo.service.WolfService;
 
 @Controller
+@RequestMapping("/wolves/")
 public class WolfController {
     private final WolfService wolfService;
     private final WolfRepository wolfRepository;
