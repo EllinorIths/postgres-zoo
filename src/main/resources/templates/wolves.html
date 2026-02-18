@@ -14,9 +14,9 @@
 
         <span> - </span>
 
-        <a th:href="@{/wolves/{id}/edit(id=${wolf.id})}">Update info</a>
+        <a th:href="@{/wolves/{id}/update(id=${wolf.id})}">Update info</a>
         <form th:action="@{/wolves/{id}(id=${wolf.id})}" method="post" style="display:inline;">
-            <input type="hidden" name="method_" value="DELETE">
+            <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Delete wolf</button>
         </form>
 

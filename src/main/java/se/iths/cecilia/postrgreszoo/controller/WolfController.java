@@ -8,7 +8,7 @@ import se.iths.cecilia.postrgreszoo.repository.WolfRepository;
 import se.iths.cecilia.postrgreszoo.service.WolfService;
 
 @Controller
-@RequestMapping("/wolves/")
+@RequestMapping("/wolves")
 public class WolfController {
     private final WolfService wolfService;
     private final WolfRepository wolfRepository;
@@ -38,14 +38,14 @@ public class WolfController {
     @PostMapping("/create")
     public String createWolf(@ModelAttribute Wolf wolf) {
         wolfService.createWolf(wolf);
-        return "redirect:/wolf";
+        return "redirect:/wolves";
     }
 
 
-    @PutMapping("/{id}/update")
+    @PutMapping("/{id}/edit")
     public String updateWolf(@PathVariable Long id, @ModelAttribute Wolf wolf) {
         wolfService.updateWolf(id, wolf);
-        return "redirect:/wolf";
+        return "redirect:/wolves";
     }
 
     @GetMapping("/{id}/update")
@@ -56,11 +56,11 @@ public class WolfController {
     }
 
 
-    @DeleteMapping("/{id}/delete")
+    @DeleteMapping("/{id}")
     public String deleteWolf(@PathVariable Long id) {
         wolfService.deleteWolf(id);
         System.out.println("Delete method");
-        return "redirect:/wolf";
+        return "redirect:/wolves";
     }
 
 

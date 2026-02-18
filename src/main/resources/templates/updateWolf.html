@@ -8,7 +8,7 @@
 
 <h1>Update wolf:</h1>
 
-<form method="post" th:action="@{/wolves/{id}(id=${wolf.id})}">
+<form method="post" th:action="@{/wolves/{id}/edit(id=${wolf.id})}">
     <input type="hidden" name="_method" value="PUT">
     <p>
         <label>Name: </label>
@@ -33,6 +33,9 @@
         <input type="text" name="howlKey"
                th:value="${wolf.howlKey}">
     </p>
+
+    <button type="submit">Update wolf</button>
+
 </form>
 
 </body>
