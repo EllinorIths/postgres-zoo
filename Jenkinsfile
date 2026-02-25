@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Run SQL') {
             steps {
-                sh '''
+                bat '''
                 echo "Kör SQL..."
                 ls
                 psql -U postgres -d postgres -f wolf.sql
