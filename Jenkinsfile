@@ -5,12 +5,12 @@ pipeline {
         stage('Run SQL') {
             steps {
                 bat '''
-                echo "Kör SQL..."
+                echo Pipeline fungerar!
                 dir
-                psql -U postgres -d postgres -f wolf.sql
                 '''
             }
         }
     }
 
 }
+
