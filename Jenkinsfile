@@ -22,10 +22,11 @@ pipeline {
                 dir
 
                 REM Kör SQL-filen med full sökväg till psql
-                "C:\\Program Files\\PostgreSQL\\15\\bin\\psql.exe" -U postgres -d postgres -f "sql\\wolf.sql"
+                "C:\\Program Files\\PostgreSQL\\18\\bin\\psql.exe" -U postgres -d postgres -f "sql\\wolf.sql"
                 '''
             }
         }
     }
 }
+
 
