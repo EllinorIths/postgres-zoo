@@ -5,7 +5,7 @@ pipeline {
         stage('Run SQL') {
             steps {
                 bat '''
-                echo Pipeline fungerar!
+                echo Kör SQL...
                 dir
                 '''
             }
@@ -13,4 +13,5 @@ pipeline {
     }
 
 }
+
 
