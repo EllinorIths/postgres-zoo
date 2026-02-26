@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PGPASSWORD = 'postgres'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -15,15 +11,18 @@ pipeline {
 
         stage('Run SQL') {
             steps {
-                echo 'Kör wolf.sql på PostgreSQL...'
-                
-                bat '''
-                REM Visa vilka filer som finns (valfritt)
-                dir
+                withCredentials([usernamePassword(credentialsId: 'postgres-creds', 
+                                                 usernameVariable: 'PGUSER', 
+                                                 passwordVariable: 'PGPASSWORD')]) {
+                    echo 'Kör wolf.sql på PostgreSQL...'
+                    bat '''
+                    REM Visa filer (valfritt)
+                    dir
 
-                REM Kör SQL-filen med full sökväg till psql
-                "C:\\Program Files\\PostgreSQL\\18\\bin\\psql.exe" -U postgres -d postgres -f "sql\\wolf.sql"
-                '''
+                    REM Kör SQL-filen
+                    "C:\\Program Files\\PostgreSQL\\18\\bin\\psql.exe" -U %PGUSER% -d postgres -f "sql\\wolf.sql"
+                    '''
+                }
             }
         }
     }
