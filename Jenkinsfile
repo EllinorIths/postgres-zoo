@@ -5,13 +5,15 @@ pipeline {
         stage('Run SQL') {
             steps {
                 bat '''
-                echo Kör SQL...
-                dir
+                echo Kör SQL-script...
+                set PGPASSWORD=postgres
+                psql -U postgres -d postgres -f wolf.sql
                 '''
             }
         }
     }
 
 }
+
 
 
