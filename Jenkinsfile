@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Ange lösenordet till postgres-användaren här
         PGPASSWORD = 'postgres'
     }
 
@@ -18,17 +17,15 @@ pipeline {
             steps {
                 echo 'Kör wolf.sql på PostgreSQL...'
                 
-                // kör SQL via psql
                 bat '''
                 REM Visa vilka filer som finns (valfritt)
                 dir
 
-                REM Kör SQL-filen
-                psql -U postgres -d postgres -f "sql\\wolf.sql"
+                REM Kör SQL-filen med full sökväg till psql
+                "C:\\Program Files\\PostgreSQL\\15\\bin\\psql.exe" -U postgres -d postgres -f "sql\\wolf.sql"
                 '''
             }
         }
     }
 }
-
 
