@@ -6,10 +6,11 @@ pipeline {
             steps {
                 bat '''
                 echo "Kör SQL..."
-                ls
+                dir
                 psql -U postgres -d postgres -f wolf.sql
                 '''
             }
         }
     }
+
 }
