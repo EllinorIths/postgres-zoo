@@ -13,11 +13,12 @@ pipeline {
                 echo 'Bygger projektet med Maven och kör tester (H2)...'
                 
                 bat '''
-                mvnw clean test
+                mvnw clean test -Dspring.profiles.active=test
                 '''
             }
         }
     }
 }
+
 
 
